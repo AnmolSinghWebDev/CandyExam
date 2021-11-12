@@ -74,7 +74,7 @@
 
   h2{
     color: #FFF;
-    font-size: 31px;
+    font-size: 35px;
   }
 
   a{
@@ -94,6 +94,8 @@
     margin-top: 15px;
     margin-bottom: 30px;
     line-height: 1.2;
+    text-align: left;
+    padding: 0 10px;
   }
   
   sub{

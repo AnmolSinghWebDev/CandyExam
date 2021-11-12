@@ -37,7 +37,7 @@
     }
     .subTitle{
         text-align: left;
-        font-size: 35px;
+        font-size: 37px;
     }
     .menuContainer{
         width: 50%;

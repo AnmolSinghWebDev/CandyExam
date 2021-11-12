@@ -53,7 +53,7 @@
 
                 const jsonData = JSON.stringify(formData);
 
-                this.$mail.send({
+                await this.$mail.send({
                     from : this.email,
                     subject: this.subject,
                     text: jsonData,
