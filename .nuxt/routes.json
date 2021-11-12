@@ -1,0 +1,16 @@
+[
+  {
+    "name": "contact",
+    "path": "/contact",
+    "component": "C:\\\\Users\\\\Anmol\\\\Downloads\\\\candyexam\\\\pages\\\\contact.vue",
+    "chunkName": "pages/contact",
+    "_name": "_75fae4e2"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\Anmol\\\\Downloads\\\\candyexam\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_24da99fe"
+  }
+]
