@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <form >
+            <h3 v-if="this.success">Form submitted successfully</h3>
             <div class="form-field">
                 <label for="fname">First Name</label>
                 <input type="text" v-model="firstName" id="fname" name="firstname" placeholder="Your name..">
@@ -36,7 +37,7 @@
                 email : '',
                 subject : '',
                 message: '',
-
+                success: '',
             }
         },
         
@@ -50,34 +51,92 @@
                     message: this.message
                 }
 
+                const jsonData = JSON.stringify(formData);
+
                 this.$mail.send({
                     from : this.email,
                     subject: this.subject,
-                    text: formData,
-                    to: 'anmolsingh9898@gmail.com'
+                    text: jsonData,
+                   
                 });
 
-                const jsonData = JSON.stringify(formData);
-    
                 const config = {
                     headers: {
-                        'Accept' : 'application/json',
-                        
+                        'Accept' : 'application/json', 
                     }
                 }
 
                 try {
 
                     const res = await axios.post('http://localhost:3000/api/submissions', formData , config);
-
+                    this.success = true;
                 } catch(err){
 
                     console.log(err);
 
                 }
 
-                            
+                this.firstName = '';
+                this.lastName = '';
+                this.email = '';
+                this.subject - '';
+                this.message = '';
+           
             }
         },
     }
 </script>
+<style>
+    form{
+        text-align: center;
+        width: 40%;
+        min-width: 400px;
+        margin: 0 auto;
+
+    }
+
+    .form-field{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 15px 0;
+    }
+
+    label{
+        width: 25%;
+        min-width: 60px;
+        font-size: 21px;
+        text-align: center;
+    }
+
+    input{
+        width: 70%;
+        padding: 10px;
+    }
+
+    textarea{
+        width: 70%;
+        padding: 20px 10px;
+    }
+    
+    input[type=submit]{
+        max-width: 250px;
+        margin: 0 auto;
+        padding: 10px 15px;
+        border: 0;
+        box-shadow: none;
+        background-color: #494368;
+        color:white;
+        font-size: 17px;
+        text-transform: uppercase;
+        transform: 0.7s ease-in all;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover{
+        color: #494368;
+        background-color: white;
+        border: 1px solid #494368;
+    }
+
+</style>

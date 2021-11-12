@@ -33,9 +33,10 @@
         justify-content: center;
         flex-wrap: wrap;
         align-items: center;
+
     }
     .subTitle{
-        text-align: center;
+        text-align: left;
         font-size: 35px;
     }
     .menuContainer{
@@ -47,12 +48,12 @@
     .menu{
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: flex-end;
         flex-wrap: wrap;
         align-items: center;
     }
     .menuItem{
-        
+        margin-left: 35px;
         list-style: none;
         font-size: 27px;
         

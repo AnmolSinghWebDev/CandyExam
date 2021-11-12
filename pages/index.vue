@@ -3,7 +3,7 @@
     <Header/>
     <Home/>
     <!-- Display posts from cms here -->
-    <div class="blogContainer">
+    <div class="blogContainer container">
       <Blog v-for="blog in blogs" :key="blog.id" :id="blog.id" :blog="blog"/>
     </div>
   </div>
@@ -54,5 +54,6 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    padding: 30px 40px;
   }
 </style>

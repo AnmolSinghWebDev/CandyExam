@@ -16,7 +16,5 @@
     "nuxt": "^2.15.7",
     "nuxt-mail": "^3.0.12"
   },
-  "devDependencies": {
-    "@nuxtjs/vuetify": "^1.12.1"
-  }
+  "devDependencies": {}
 }
