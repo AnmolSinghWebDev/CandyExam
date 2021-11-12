@@ -1,28 +1,85 @@
 <template>
     <div class="container">
-        <form>
+        <form >
             <div class="form-field">
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <input type="text" v-model="firstName" id="fname" name="firstname" placeholder="Your name..">
             </div>
             <div class="form-field">
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <input type="text" v-model="lastName" id="lname" name="lastname" placeholder="Your last name..">
             </div>
             <div class="form-field">
                 <label for="email">Email Address</label>
-                <input type="text" id="email" name="email" placeholder="Email Address..">
+                <input type="text" required v-model="email" id="email" name="email" placeholder="Email Address..">
             </div>
             <div class="form-field">
             <label for="subject">Subject</label>
-            <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+            <textarea id="subject" required v-model="subject" name="subject" placeholder="Write something.."></textarea>
             </div>
             <div class="form-field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Write something.."></textarea>
+            <textarea id="message" name="message" v-model="message" placeholder="Write something.."></textarea>
             </div>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" @click.prevent="submit">
         </form>
     </div>
 </template>
+<script>
+    import axios from 'axios';
+    export default {
+        data() {
+            return {
+                firstName : '',
+                lastName : '',
+                email : '',
+                subject : '',
+                message: '',
+
+            }
+        },
+        
+        methods: {
+            async submit () {
+                const formData = {
+                    firstname : this.firstName,
+                    lastName : this.lastName,
+                    email : this.email,
+                    subject: this.subject,
+                    message: this.message
+                }
+
+                
+                
+                // this.$mail.send({
+                //     from : this.email,
+                //     subject: this.subject,
+                //     text: formData,
+                //     to: 'anmolsingh9898@gmail.com'
+                // });
+
+                const jsonData = JSON.stringify(formData);
+    
+                const config = {
+                    headers: {
+                        'Accept' : 'application/json',
+                        
+                    }
+                }
+
+                try {
+
+                    const res = await axios.post('http://localhost:3000/api/submissions', formData , config);
+
+                } catch(err){
+
+                    console.log(err);
+
+                }
+
+                            
+            }
+        },
+    }
+</script>

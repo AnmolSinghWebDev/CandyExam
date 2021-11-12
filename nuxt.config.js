@@ -15,7 +15,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -29,12 +28,45 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // Simple usage
+    '@nuxtjs/vuetify',
+
+    // With options
+    ['@nuxtjs/vuetify', { /* module options */ }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-mail', {
+      message: {
+        to: 'anmolsinghwebdev@gmail.com',
+      },
+      smtp: {
+        host: "mail.anmol-singh.com",
+        port: 26,
+        auth: {
+          user: "webtest@anmol-singh.com",
+          pass: "C@ndyb@nner",
+        },
+        tls: {
+          rejectUnauthorized:false,
+        },
+      }, 
+    }],
+    
   ],
+
+  axios: {
+    proxy: true // Can be also an object with default options
+  },
+
+  proxy: {
+    "/api/": {
+      target: "http://localhost:5000",
+      pathRewrite: { "^/api/": "/" }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
