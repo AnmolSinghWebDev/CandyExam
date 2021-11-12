@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import Header from "~/components/Header.vue";
-import ContactForm from "~/components/utils/ContactForm.vue";
+    import Header from "~/components/Header.vue";
+    import ContactForm from "~/components/utils/ContactForm.vue";
 
-export default {    
-    components: {
-        ContactForm,
-        Header,
-    },
-}
+    export default {    
+        components: {
+            ContactForm,
+            Header,
+        },
+    }
 </script>
