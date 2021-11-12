@@ -50,14 +50,12 @@
                     message: this.message
                 }
 
-                
-                
-                // this.$mail.send({
-                //     from : this.email,
-                //     subject: this.subject,
-                //     text: formData,
-                //     to: 'anmolsingh9898@gmail.com'
-                // });
+                this.$mail.send({
+                    from : this.email,
+                    subject: this.subject,
+                    text: formData,
+                    to: 'anmolsingh9898@gmail.com'
+                });
 
                 const jsonData = JSON.stringify(formData);
     
